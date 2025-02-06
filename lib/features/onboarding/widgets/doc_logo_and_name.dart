@@ -1,6 +1,6 @@
+import 'package:bookin_appointment/core/helpers/spacing.dart';
 import 'package:bookin_appointment/core/themes/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DocLogoAndName extends StatelessWidget {
@@ -12,8 +12,8 @@ class DocLogoAndName extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset("assets/svgs/docdoc_logo.svg", width: 60, height: 60),
-        SizedBox(width: 10.w),
-        Text("Docdoc", style: TextStyles.font24Black700weight),
+        horizontalSpace(10),
+        Text("Docdoc", style: TextStyles.font24BlackBold),
       ],
     );
   }

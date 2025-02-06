@@ -1,3 +1,4 @@
+import 'package:bookin_appointment/core/helpers/spacing.dart';
 import 'package:bookin_appointment/core/themes/styles.dart';
 import 'package:bookin_appointment/features/onboarding/widgets/doc_logo_and_name.dart';
 import 'package:bookin_appointment/features/onboarding/widgets/doctor_image_and_text.dart';
@@ -20,7 +21,7 @@ class OnboardingScreen extends StatelessWidget {
           child: Column(
             children: [
               const DocLogoAndName(),
-              SizedBox(height: 30.h),
+              verticalSpace(30),
               const DoctorImageAndText(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -31,7 +32,7 @@ class OnboardingScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyles.font13GrayRegular,
                     ),
-                    SizedBox(height: 30.h),
+                    verticalSpace(30),
                     const GetStartedButton(),
                   ],
                 ),
