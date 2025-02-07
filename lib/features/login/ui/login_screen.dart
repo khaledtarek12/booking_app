@@ -2,7 +2,7 @@ import 'package:bookin_appointment/core/helpers/spacing.dart';
 import 'package:bookin_appointment/core/themes/styles.dart';
 import 'package:bookin_appointment/core/widgets/app_text_button.dart';
 import 'package:bookin_appointment/features/login/logic/login_cubit/login_cubit.dart';
-import 'package:bookin_appointment/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:bookin_appointment/features/login/ui/widgets/dont_have_an_account_text.dart';
 import 'package:bookin_appointment/features/login/ui/widgets/email_and_password.dart';
 import 'package:bookin_appointment/features/login/ui/widgets/login_bloc_listner.dart';
 import 'package:bookin_appointment/features/login/ui/widgets/terms_and_condition_text.dart';
@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                       verticalSpace(16),
                       const TermsAndConditionText(),
                       verticalSpace(60),
-                      const AlreadyHaveAccountText(),
+                      const DontHaveAnAccountTetxt(),
                       const LoginBlocListner(),
                     ],
                   ),

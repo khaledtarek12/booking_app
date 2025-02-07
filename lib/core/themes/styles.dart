@@ -83,6 +83,13 @@ class TextStyles {
     color: Colors.white,
   );
 
+  static TextStyle font16WhiteSemiBold = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 16.sp,
+    color: Colors.white,
+  );
+
   static TextStyle font16WhiteSemibold = TextStyle(
     fontFamily: fontFamily,
     fontWeight: FontWeightHelper.semiBold,
