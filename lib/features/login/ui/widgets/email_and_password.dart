@@ -65,7 +65,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(18),
           AppTextFormField(
             hintText: 'Password',
-            obscureText: isObscureText,
+            isObscureText: isObscureText,
             controller: cubit.passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {
