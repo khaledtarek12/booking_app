@@ -26,20 +26,20 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.4.1"  # Updated Ruby version
-        bundler-cache: true
-        working-directory: android
+        ruby-version: "3.4.1"  # Ensure correct Ruby version
+        bundler-cache: false    # Disable auto-caching for now
 
     - name: Fix Gemfile.lock Platform Issue
       run: |
         bundle lock --add-platform x86_64-linux
       working-directory: android
 
-    - name: Install Fastlane dependencies
+    - name: Install Bundler and Dependencies
       run: |
-        bundle install
+        gem install bundler:2.5.22
+        bundle install --jobs 4
       working-directory: android
-    
+
     - name: Build and Distribute App
       env:
         FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
