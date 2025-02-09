@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45066686417",
+    "project_id": "fresh-span-440417-c5",
+    "storage_bucket": "fresh-span-440417-c5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45066686417:android:b2dbb8ddebc0fbf2075af0",
+        "android_client_info": {
+          "package_name": "com.example.bookin_appointment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnjEQdKWkRjVvP8pT_SzCHV6jMnCi7hS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
