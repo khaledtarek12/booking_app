@@ -29,7 +29,12 @@ jobs:
         ruby-version: "3.4.1"  # Updated Ruby version
         bundler-cache: true
         working-directory: android
-        
+
+    - name: Fix Gemfile.lock Platform Issue
+      run: |
+        bundle lock --add-platform x86_64-linux
+      working-directory: android
+
     - name: Install Fastlane dependencies
       run: |
         bundle install
