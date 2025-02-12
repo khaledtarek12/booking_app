@@ -1,9 +1,8 @@
 import 'package:bookin_appointment/core/helpers/spacing.dart';
-import 'package:bookin_appointment/features/home/ui/widgets/doctor_speciality_list_view.dart';
 import 'package:bookin_appointment/features/home/ui/widgets/doctor_title_see_all.dart';
 import 'package:bookin_appointment/features/home/ui/widgets/doctors_blue_container.dart';
-import 'package:bookin_appointment/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:bookin_appointment/features/home/ui/widgets/home_tab_bar.dart';
+import 'package:bookin_appointment/features/home/ui/widgets/specialization_and_doctor_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +16,6 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           margin: const EdgeInsets.fromLTRB(20, 16, 20, 28),
-          // ignore: prefer_const_constructors
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,9 +24,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(24),
               const DoctorTitleSeeAll(title: 'Doctor Speciality'),
               verticalSpace(18),
-              const DoctorsSpecialityListView(),
-              verticalSpace(8),
-              const DoctorsListView(),
+              const SpecializationAndDoctorBlocBuilder()
             ],
           ),
         ),
