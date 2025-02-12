@@ -1,5 +1,7 @@
 import 'package:bookin_appointment/core/networkes/api_service.dart';
 import 'package:bookin_appointment/core/networkes/dio_factory.dart';
+import 'package:bookin_appointment/features/home/data/apis/home_api_service.dart';
+import 'package:bookin_appointment/features/home/data/repo/home_repo.dart';
 import 'package:bookin_appointment/features/login/data/repo/login_repo.dart';
 import 'package:bookin_appointment/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:bookin_appointment/features/signup/data/repo/signup_repo.dart';
@@ -21,4 +23,9 @@ Future<void> setUpGetIt() async {
   // Signup
   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
   getit.registerFactory<SignupCubit>(() => SignupCubit(getit()));
+
+  // Home
+  getit.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getit.registerLazySingleton<HomeRepo>(() => HomeRepo(getit()));
+  // getit.registerFactory<HomeCubit>(() => HomeCubit(getit()));
 }
