@@ -3,8 +3,36 @@ import 'package:bookin_appointment/core/themes/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TextStyles {
+class AppTextStyles {
   static const String fontFamily = 'Poppins';
+
+  static TextStyle font12GrayRegular = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 12.sp,
+    color: ColorsManager.grey,
+  );
+
+  static TextStyle font12GrayMeduim = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 12.sp,
+    color: ColorsManager.grey,
+  );
+
+  static TextStyle font12DarkblueRegular = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 12.sp,
+    color: ColorsManager.darkBlue,
+  );
+
+  static TextStyle font12BlueRegular = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 12.sp,
+    color: ColorsManager.mainBlue,
+  );
 
   static TextStyle font13GrayRegular = TextStyle(
     fontFamily: fontFamily,
@@ -95,6 +123,27 @@ class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     fontSize: 16.sp,
     color: Colors.white,
+  );
+
+  static TextStyle font17WhiteMeduim = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 17.sp,
+    color: Colors.white,
+  );
+
+  static TextStyle font18DarkBlueBold = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    color: ColorsManager.darkBlue,
+  );
+
+  static TextStyle font18DarkBlueSemibold = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 18.sp,
+    color: ColorsManager.darkBlue,
   );
 
   static TextStyle font24BlackBold = TextStyle(

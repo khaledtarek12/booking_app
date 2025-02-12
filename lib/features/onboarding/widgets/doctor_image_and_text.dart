@@ -23,7 +23,7 @@ class DoctorImageAndText extends StatelessWidget {
               stops: const [0.14, 0.4],
             ),
           ),
-          child: Image.asset("assets/images/onboarding_doctor.png"),
+          child: Image.asset("assets/images/onBoarding_doctor.png"),
         ),
         Positioned(
           bottom: 30,
@@ -32,7 +32,7 @@ class DoctorImageAndText extends StatelessWidget {
           child: Text(
             'Best Doctor\nAppointment App',
             textAlign: TextAlign.center,
-            style: TextStyles.font32BlueBold.copyWith(height: 1.4),
+            style: AppTextStyles.font32BlueBold.copyWith(height: 1.4),
           ),
         ),
       ],
