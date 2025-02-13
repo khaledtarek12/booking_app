@@ -37,11 +37,12 @@ class SignUpBlocListner extends StatelessWidget {
               context: context,
               builder: (context) => AlertDialog(
                 icon: const Icon(Icons.error, color: Colors.red, size: 23),
-                content: Text(error, style: TextStyles.font14DarkBlueMeduim),
+                content: Text(error.getAllErrorMessages(), style: AppTextStyles.font14DarkBlueMeduim),
                 actions: [
                   TextButton(
                     onPressed: () => context.pop(),
-                    child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+                    child:
+                        Text('Got it', style: AppTextStyles.font14BlueSemiBold),
                   ),
                 ],
               ),
@@ -72,7 +73,7 @@ void showSuccessDialog(BuildContext context) {
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.blue,
-              disabledForegroundColor: Colors.grey.withOpacity(0.38),
+              disabledForegroundColor: Colors.grey.withValues(alpha: 0.38),
             ),
             onPressed: () {
               context.pushReplacementNamed(Routes.loginScreen);

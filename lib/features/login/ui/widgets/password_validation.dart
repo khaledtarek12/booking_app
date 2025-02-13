@@ -43,7 +43,7 @@ class PasswordValidations extends StatelessWidget {
         horizontalSpace(6),
         Text(
           text,
-          style: TextStyles.font13DarkBlueRegular.copyWith(
+          style: AppTextStyles.font13DarkBlueRegular.copyWith(
             decoration:
                 hasvalidated ? TextDecoration.lineThrough : TextDecoration.none,
             decorationColor: Colors.green,

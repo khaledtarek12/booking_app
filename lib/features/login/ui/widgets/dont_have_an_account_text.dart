@@ -11,20 +11,18 @@ class DontHaveAnAccountTetxt extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'Don\'t have an account? ',
-            style: TextStyles.font13DarkBlueRegular,
-          ),
-          TextSpan(
-            text: 'Sign Up',
-            style: TextStyles.font13BlueSemiBold,
-            recognizer: TapGestureRecognizer()
-              ..onTap = () => context.pushReplacementNamed(Routes.signupScreen),
-          )
-        ]
-      ),
+      text: TextSpan(children: [
+        TextSpan(
+          text: 'Don\'t have an account? ',
+          style: AppTextStyles.font13DarkBlueRegular,
+        ),
+        TextSpan(
+          text: 'Sign Up',
+          style: AppTextStyles.font13BlueSemiBold,
+          recognizer: TapGestureRecognizer()
+            ..onTap = () => context.pushReplacementNamed(Routes.signupScreen),
+        )
+      ]),
     );
   }
 }

@@ -33,12 +33,12 @@ class SignupCubit extends Cubit<SignupState> {
         emit(SignupState.signUpSuccess(signupResponse));
       },
       failure: (error) {
-        emit(SignupState.signUpError(error: error.apiErrorModel.message ?? ''));
+        emit(SignupState.signUpError(error));
       },
     );
   }
 
-    void validateThenDoSignup() {
+  void validateThenDoSignup() {
     if (formKey.currentState!.validate()) {
       emitSignUpStates();
     }
