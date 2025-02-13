@@ -163,9 +163,10 @@ ApiErrorModel _handleError(DioException error) {
     case DioExceptionType.cancel:
       return DataSource.CANCEL.getFailure();
     case DioExceptionType.connectionError:
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.CONNECT_TIMEOUT.getFailure();
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.CACHE_ERROR.getFailure();
+    // ignore: unreachable_switch_default
     default:
       return DataSource.DEFAULT.getFailure();
   }
