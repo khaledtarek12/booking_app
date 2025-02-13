@@ -1,3 +1,4 @@
+import 'package:bookin_appointment/core/helpers/shared_pref_const.dart';
 import 'package:bookin_appointment/core/routes/app_router.dart';
 import 'package:bookin_appointment/core/routes/routes.dart';
 import 'package:bookin_appointment/core/themes/colors.dart';
@@ -19,7 +20,9 @@ class DocApp extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: SharedPrefConst.isUserLoggedIn
+            ? Routes.homeScreen
+            : Routes.onBoardingScreen,
         onGenerateRoute: AppRouter.generateRoute,
       ),
     );
