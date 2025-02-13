@@ -21,7 +21,7 @@ mixin _$SignupState<T> {
     required TResult Function() initial,
     required TResult Function() signUpLoading,
     required TResult Function(T data) signUpSuccess,
-    required TResult Function(String error) signUpError,
+    required TResult Function(ApiErrorModel errorModel) signUpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$SignupState<T> {
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
     TResult? Function(T data)? signUpSuccess,
-    TResult? Function(String error)? signUpError,
+    TResult? Function(ApiErrorModel errorModel)? signUpError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$SignupState<T> {
     TResult Function()? initial,
     TResult Function()? signUpLoading,
     TResult Function(T data)? signUpSuccess,
-    TResult Function(String error)? signUpError,
+    TResult Function(ApiErrorModel errorModel)? signUpError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() signUpLoading,
     required TResult Function(T data) signUpSuccess,
-    required TResult Function(String error) signUpError,
+    required TResult Function(ApiErrorModel errorModel) signUpError,
   }) {
     return initial();
   }
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
     TResult? Function(T data)? signUpSuccess,
-    TResult? Function(String error)? signUpError,
+    TResult? Function(ApiErrorModel errorModel)? signUpError,
   }) {
     return initial?.call();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? signUpLoading,
     TResult Function(T data)? signUpSuccess,
-    TResult Function(String error)? signUpError,
+    TResult Function(ApiErrorModel errorModel)? signUpError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -250,7 +250,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
     required TResult Function() initial,
     required TResult Function() signUpLoading,
     required TResult Function(T data) signUpSuccess,
-    required TResult Function(String error) signUpError,
+    required TResult Function(ApiErrorModel errorModel) signUpError,
   }) {
     return signUpLoading();
   }
@@ -261,7 +261,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
     TResult? Function(T data)? signUpSuccess,
-    TResult? Function(String error)? signUpError,
+    TResult? Function(ApiErrorModel errorModel)? signUpError,
   }) {
     return signUpLoading?.call();
   }
@@ -272,7 +272,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
     TResult Function()? initial,
     TResult Function()? signUpLoading,
     TResult Function(T data)? signUpSuccess,
-    TResult Function(String error)? signUpError,
+    TResult Function(ApiErrorModel errorModel)? signUpError,
     required TResult orElse(),
   }) {
     if (signUpLoading != null) {
@@ -396,7 +396,7 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
     required TResult Function() initial,
     required TResult Function() signUpLoading,
     required TResult Function(T data) signUpSuccess,
-    required TResult Function(String error) signUpError,
+    required TResult Function(ApiErrorModel errorModel) signUpError,
   }) {
     return signUpSuccess(data);
   }
@@ -407,7 +407,7 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
     TResult? Function(T data)? signUpSuccess,
-    TResult? Function(String error)? signUpError,
+    TResult? Function(ApiErrorModel errorModel)? signUpError,
   }) {
     return signUpSuccess?.call(data);
   }
@@ -418,7 +418,7 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
     TResult Function()? initial,
     TResult Function()? signUpLoading,
     TResult Function(T data)? signUpSuccess,
-    TResult Function(String error)? signUpError,
+    TResult Function(ApiErrorModel errorModel)? signUpError,
     required TResult orElse(),
   }) {
     if (signUpSuccess != null) {
@@ -483,7 +483,7 @@ abstract class _$$SignUpErrorImplCopyWith<T, $Res> {
           $Res Function(_$SignUpErrorImpl<T>) then) =
       __$$SignUpErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel errorModel});
 }
 
 /// @nodoc
@@ -499,13 +499,13 @@ class __$$SignUpErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? errorModel = null,
   }) {
     return _then(_$SignUpErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == errorModel
+          ? _value.errorModel
+          : errorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -513,14 +513,14 @@ class __$$SignUpErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SignUpErrorImpl<T> implements SignUpError<T> {
-  const _$SignUpErrorImpl({required this.error});
+  const _$SignUpErrorImpl(this.errorModel);
 
   @override
-  final String error;
+  final ApiErrorModel errorModel;
 
   @override
   String toString() {
-    return 'SignupState<$T>.signUpError(error: $error)';
+    return 'SignupState<$T>.signUpError(errorModel: $errorModel)';
   }
 
   @override
@@ -528,11 +528,12 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignUpErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.errorModel, errorModel) ||
+                other.errorModel == errorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, errorModel);
 
   /// Create a copy of SignupState
   /// with the given fields replaced by the non-null parameter values.
@@ -549,9 +550,9 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
     required TResult Function() initial,
     required TResult Function() signUpLoading,
     required TResult Function(T data) signUpSuccess,
-    required TResult Function(String error) signUpError,
+    required TResult Function(ApiErrorModel errorModel) signUpError,
   }) {
-    return signUpError(error);
+    return signUpError(errorModel);
   }
 
   @override
@@ -560,9 +561,9 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
     TResult? Function(T data)? signUpSuccess,
-    TResult? Function(String error)? signUpError,
+    TResult? Function(ApiErrorModel errorModel)? signUpError,
   }) {
-    return signUpError?.call(error);
+    return signUpError?.call(errorModel);
   }
 
   @override
@@ -571,11 +572,11 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
     TResult Function()? initial,
     TResult Function()? signUpLoading,
     TResult Function(T data)? signUpSuccess,
-    TResult Function(String error)? signUpError,
+    TResult Function(ApiErrorModel errorModel)? signUpError,
     required TResult orElse(),
   }) {
     if (signUpError != null) {
-      return signUpError(error);
+      return signUpError(errorModel);
     }
     return orElse();
   }
@@ -619,10 +620,10 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
 }
 
 abstract class SignUpError<T> implements SignupState<T> {
-  const factory SignUpError({required final String error}) =
+  const factory SignUpError(final ApiErrorModel errorModel) =
       _$SignUpErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get errorModel;
 
   /// Create a copy of SignupState
   /// with the given fields replaced by the non-null parameter values.

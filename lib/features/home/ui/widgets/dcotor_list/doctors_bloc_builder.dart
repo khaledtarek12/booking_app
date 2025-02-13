@@ -18,7 +18,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
           doctorsSuccess: (doctorsList) {
             return setUpSuccess(doctorsList);
           },
-          doctorsError: (error) => setUpError(),
+          doctorsError: () => setUpError(),
           orElse: () => const Center(child: SizedBox.shrink()),
         );
       },
