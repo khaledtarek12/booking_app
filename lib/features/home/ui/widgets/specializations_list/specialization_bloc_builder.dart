@@ -2,13 +2,14 @@ import 'package:bookin_appointment/core/helpers/spacing.dart';
 import 'package:bookin_appointment/features/home/data/models/specialization_response_model.dart';
 import 'package:bookin_appointment/features/home/logic/cubit/home_cubit.dart';
 import 'package:bookin_appointment/features/home/logic/cubit/home_state.dart';
-import 'package:bookin_appointment/features/home/ui/widgets/doctor_speciality_list_view.dart';
-import 'package:bookin_appointment/features/home/ui/widgets/doctors_list_view.dart';
+import 'package:bookin_appointment/features/home/ui/widgets/dcotor_list/doctors_shimmer_loading.dart';
+import 'package:bookin_appointment/features/home/ui/widgets/specializations_list/speciality_list_view.dart';
+import 'package:bookin_appointment/features/home/ui/widgets/specializations_list/speciality_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SpecializationAndDoctorBlocBuilder extends StatelessWidget {
-  const SpecializationAndDoctorBlocBuilder({super.key});
+class SpecializationBlocBuilder extends StatelessWidget {
+  const SpecializationBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +22,8 @@ class SpecializationAndDoctorBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           specializationLoading: () => setUpLoading(),
-          specializationSuccess: (specializationsResponse) {
-            final specializations = specializationsResponse.specializationData;
-            return setUpSuccess(specializations);
+          specializationSuccess: (specializationsDataList) {
+            return setUpSuccess(specializationsDataList);
           },
           specializationError: (error) => setUpError(),
           orElse: () => const Center(child: SizedBox.shrink()),
@@ -33,15 +33,7 @@ class SpecializationAndDoctorBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpSuccess(List<SpecializationData?>? specializations) {
-    return Expanded(
-      child: Column(
-        children: [
-          DoctorsSpecialityListView(specializations: specializations ?? []),
-          verticalSpace(8),
-          DoctorsListView(doctorsList: specializations?[0]?.doctorsList ?? []),
-        ],
-      ),
-    );
+    return SpecialityListView(specializations: specializations ?? []);
   }
 
   Widget setUpError() {
@@ -54,10 +46,13 @@ class SpecializationAndDoctorBlocBuilder extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Expanded(
-      child: Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
+    return Expanded(
+        child: Column(
+      children: [
+        const SpecialityShimmerLoading(),
+        verticalSpace(8),
+        const DoctorsShimmerLoading()
+      ],
+    ));
   }
 }

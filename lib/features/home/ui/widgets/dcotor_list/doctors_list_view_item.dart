@@ -13,6 +13,7 @@ class DoctorsListViewItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 16.h),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),

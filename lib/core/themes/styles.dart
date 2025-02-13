@@ -97,6 +97,13 @@ class AppTextStyles {
     color: ColorsManager.darkBlue,
   );
 
+  static TextStyle font14DarkBlueBold = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 14.sp,
+    color: ColorsManager.darkBlue,
+  );
+
   static TextStyle font15DarkBlueMeduim = TextStyle(
     fontFamily: fontFamily,
     fontWeight: FontWeightHelper.medium,
