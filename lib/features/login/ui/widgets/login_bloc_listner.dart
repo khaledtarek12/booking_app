@@ -1,4 +1,5 @@
 import 'package:bookin_appointment/core/helpers/extensions.dart';
+import 'package:bookin_appointment/core/networkes/api_error_model.dart';
 import 'package:bookin_appointment/core/routes/routes.dart';
 import 'package:bookin_appointment/core/themes/colors.dart';
 import 'package:bookin_appointment/core/themes/styles.dart';
@@ -14,10 +15,12 @@ class LoginBlocListner extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (_, current) =>
-          current is Loading || current is Success || current is Error,
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginError,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {
+          loginLoading: () {
             showDialog(
               context: context,
               builder: (context) => const Center(
@@ -25,11 +28,11 @@ class LoginBlocListner extends StatelessWidget {
               ),
             );
           },
-          success: (data) {
+          loginSuccess: (data) {
             context.pop();
             context.pushNamed(Routes.homeScreen);
           },
-          failure: (error) {
+          loginError: (error) {
             setupErrorState(context, error);
           },
         );
@@ -38,13 +41,13 @@ class LoginBlocListner extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel error) {
     context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         icon: const Icon(Icons.error, color: Colors.red, size: 23),
-        content: Text(error, style: AppTextStyles.font14DarkBlueMeduim),
+        content: Text(error.getAllErrorMessages(), style: AppTextStyles.font14DarkBlueMeduim),
         actions: [
           TextButton(
             onPressed: () => context.pop(),

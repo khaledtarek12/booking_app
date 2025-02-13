@@ -1,5 +1,4 @@
 import 'package:bookin_appointment/core/helpers/extensions.dart';
-import 'package:bookin_appointment/core/networkes/api_error_handler.dart';
 import 'package:bookin_appointment/features/home/data/models/specialization_response_model.dart';
 import 'package:bookin_appointment/features/home/data/repo/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,8 +32,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (!doctorList.isNullOrEmpty()) {
       emit(HomeState.doctorsSuccess(doctorList));
     } else {
-      emit(HomeState.doctorsError(
-          error: ErrorHandler.handle("No Doctors Found")));
+      emit(const HomeState.doctorsError());
     }
   }
 
